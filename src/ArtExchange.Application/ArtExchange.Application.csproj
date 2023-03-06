@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Contracts\NewFolder\**" />
+    <EmbeddedResource Remove="Contracts\NewFolder\**" />
+    <None Remove="Contracts\NewFolder\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Contracts\Entity\" />
+  </ItemGroup>
+
+</Project>
