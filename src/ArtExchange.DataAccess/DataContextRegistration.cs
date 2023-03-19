@@ -11,7 +11,8 @@ namespace ArtExchange.DataAccess
         {
             services.AddDbContext<ApplicationContext>(options =>
             {
-                options.UseNpgsql(configuration.GetConnectionString("Postgres"));
+                options.UseNpgsql(configuration.GetConnectionString("Postgres"), b=>b.MigrationsAssembly("ArtExchange.Api"));
+                
             });
         }
     }

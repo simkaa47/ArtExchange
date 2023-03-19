@@ -13,7 +13,7 @@ services:
       - art-exchange-db
   #Db
   art-exchange-db:
-    image: "postgres:9.6.17"
+    image: "postgres:latest"
     container_name: 'art-exchange-db'
     restart: always 
     ports:

@@ -9,6 +9,8 @@ namespace ArtExchange.DataAccess.DataContext
         public DbSet<Event> Events { get; set; } = null!;
         public DbSet<EventPlace> EventsPlaces { get; set; } = null!;
         public DbSet<Address> Addresses { get; set; } = null!;
+        public DbSet<Teacher> Teachers { get; set; } = null!;
+        public DbSet<Student> Students { get; set; } = null!;
 
         public ApplicationContext(DbContextOptions<ApplicationContext> options) : base(options)
         {

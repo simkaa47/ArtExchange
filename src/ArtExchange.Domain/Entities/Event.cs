@@ -16,7 +16,7 @@ namespace ArtExchange.Domain.Entities
         public TimeSpan Duration { get; set; }
         public string Note { get; set; } = string.Empty;
         public EventPlace? Place { get; set; }
-        public List<Person> Students { get; set; } = new();
-        public List<Person> Teachers { get; set; } = new();
+        public List<Student> Students { get; set; } = new();
+        public List<Teacher> Teachers { get; set; } = new();
     }
 }
