@@ -1,4 +1,5 @@
-﻿using ArtExchange.DataAccess;
+﻿using ArtExchange.Application;
+using ArtExchange.DataAccess;
 
 namespace ArtExchange.Api.Builder
 {
@@ -11,7 +12,7 @@ namespace ArtExchange.Api.Builder
             if (services is null) services = new ServiceCollection();
             if (configuration is null) configuration = GetConfiguration();
             services.AddDataContext(configuration);
-
+            services.AddApplicationServices();
             services.AddControllers();
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             services.AddEndpointsApiExplorer();
