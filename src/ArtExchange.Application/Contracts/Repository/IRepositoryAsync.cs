@@ -2,7 +2,7 @@
 
 namespace ArtExchange.Application.Contracts.Repository
 {
-    internal interface IRepositoryAsync<T> where T : class
+    public interface IRepositoryAsync<T> where T : class
     {
         Task<T> GetByIdAsync(int id);
         Task<IReadOnlyList<T>> ListAllAsync();

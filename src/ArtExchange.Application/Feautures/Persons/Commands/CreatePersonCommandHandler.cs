@@ -1,12 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using MediatR;
 
 namespace ArtExchange.Application.Feautures.Persons.Commands
 {
-    internal class CreatePersonCommandHandler
+    public class CreatePersonCommandHandler : IRequestHandler<CreatePersonCommand, long>
     {
+        public CreatePersonCommandHandler()
+        {
+
+        }
+
+        public async Task<long> Handle(CreatePersonCommand request, CancellationToken cancellationToken)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
