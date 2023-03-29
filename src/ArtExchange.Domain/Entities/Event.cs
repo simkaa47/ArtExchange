@@ -1,9 +1,6 @@
-﻿using ArtExchange.Application.Contracts.Entity;
-using System;
-
-namespace ArtExchange.Domain.Entities
+﻿namespace ArtExchange.Domain.Entities
 {
-    public class Event:EntityCommon, IEntity
+    public class Event : EntityCommon
     {
         public string Name { get; set; } = string.Empty;
 

@@ -1,8 +1,6 @@
-﻿using ArtExchange.Application.Contracts.Entity;
-
-namespace ArtExchange.Domain.Entities
+﻿namespace ArtExchange.Domain.Entities
 {
-    public abstract class EntityCommon:IEntity
+    public abstract class EntityCommon
     {
         public long Id { get; set; }
         public string? CreatedBy { get; set; }
