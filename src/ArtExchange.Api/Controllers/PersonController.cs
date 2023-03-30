@@ -1,4 +1,5 @@
-﻿using MediatR;
+﻿using ArtExchange.Application.Feautures.Persons.Commands.Add;
+using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -32,8 +33,10 @@ namespace ArtExchange.Api.Controllers
 
         // POST api/<PersonController>
         [HttpPost]
-        public void Post([FromBody] string value)
+        public async Task<ActionResult> Post([FromBody] CreatePersonCommand createPersonCommand)
         {
+            var id = await _mediator.Send(createPersonCommand);
+            return NoContent();
         }
 
         // PUT api/<PersonController>/5

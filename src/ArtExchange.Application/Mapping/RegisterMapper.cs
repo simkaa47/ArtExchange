@@ -1,4 +1,4 @@
-﻿using ArtExchange.Application.Feautures.Persons.Commands;
+﻿using ArtExchange.Application.Feautures.Persons.Commands.Add;
 using ArtExchange.Domain.Entities;
 using Mapster;
 
