@@ -13,8 +13,4 @@
     </PackageReference>
   </ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\ArtExchange.Application\ArtExchange.Application.csproj" />
-  </ItemGroup>
-
 </Project>

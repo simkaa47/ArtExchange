@@ -17,6 +17,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\ArtExchange.Application\ArtExchange.Application.csproj" />
     <ProjectReference Include="..\ArtExchange.Domain\ArtExchange.Domain.csproj" />
   </ItemGroup>
 
