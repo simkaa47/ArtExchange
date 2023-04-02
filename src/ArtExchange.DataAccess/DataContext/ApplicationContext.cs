@@ -14,7 +14,7 @@ namespace ArtExchange.DataAccess.DataContext
 
         public ApplicationContext(DbContextOptions<ApplicationContext> options) : base(options)
         {
-
+            AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

@@ -8,6 +8,6 @@ namespace ArtExchange.Application.Feautures.Persons.Commands.Add
         public string LastName { get; set; } = string.Empty;
         public string Email { get; set; } = string.Empty;
         public string ImageUri { get; set; } = string.Empty;
-        public DateTime DataOfBirth { get; set; }
+        public DateTime DataOfBirth { get; set; } = DateTime.Today.AddYears(-20);
     }
 }
