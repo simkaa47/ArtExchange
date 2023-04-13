@@ -54,7 +54,7 @@ namespace ArtExchange.Api.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Addresses");
+                    b.ToTable("Addresses", (string)null);
                 });
 
             modelBuilder.Entity("ArtExchange.Domain.Entities.Event", b =>
@@ -110,7 +110,7 @@ namespace ArtExchange.Api.Migrations
 
                     b.HasIndex("PlaceId");
 
-                    b.ToTable("Events");
+                    b.ToTable("Events", (string)null);
                 });
 
             modelBuilder.Entity("ArtExchange.Domain.Entities.EventPlace", b =>
@@ -148,7 +148,7 @@ namespace ArtExchange.Api.Migrations
 
                     b.HasIndex("AddressId");
 
-                    b.ToTable("EventsPlaces");
+                    b.ToTable("EventsPlaces", (string)null);
                 });
 
             modelBuilder.Entity("ArtExchange.Domain.Entities.Person", b =>
@@ -192,7 +192,7 @@ namespace ArtExchange.Api.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Persons");
+                    b.ToTable("Persons", (string)null);
                 });
 
             modelBuilder.Entity("ArtExchange.Domain.Entities.Student", b =>
@@ -222,7 +222,7 @@ namespace ArtExchange.Api.Migrations
 
                     b.HasIndex("PersonId");
 
-                    b.ToTable("Students");
+                    b.ToTable("Students", (string)null);
                 });
 
             modelBuilder.Entity("ArtExchange.Domain.Entities.Teacher", b =>
@@ -252,7 +252,7 @@ namespace ArtExchange.Api.Migrations
 
                     b.HasIndex("PersonId");
 
-                    b.ToTable("Teachers");
+                    b.ToTable("Teachers", (string)null);
                 });
 
             modelBuilder.Entity("EventStudent", b =>
@@ -267,7 +267,7 @@ namespace ArtExchange.Api.Migrations
 
                     b.HasIndex("StudentsId");
 
-                    b.ToTable("EventStudent");
+                    b.ToTable("EventStudent", (string)null);
                 });
 
             modelBuilder.Entity("EventTeacher", b =>
@@ -282,7 +282,7 @@ namespace ArtExchange.Api.Migrations
 
                     b.HasIndex("TeachersId");
 
-                    b.ToTable("EventTeacher");
+                    b.ToTable("EventTeacher", (string)null);
                 });
 
             modelBuilder.Entity("ArtExchange.Domain.Entities.Event", b =>
