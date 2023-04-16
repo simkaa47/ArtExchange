@@ -1,0 +1,33 @@
+version: '3'
+services:
+  #Api
+  art-exchange-api:
+    build: src
+    container_name: 'art-exchange-api'
+    restart: always
+    ports:
+      - "8091:80"
+    environment:
+      - "ConnectionStrings:Postgres=Host=art-exchange-db;Database=art_exchange_main_db;Username=simkaa47;Password=simkaa47"          
+    depends_on: 
+      - art-exchange-db
+  #Db
+  art-exchange-db:
+    image: "postgres:latest"
+    container_name: 'art-exchange-db'
+    restart: always 
+    ports:
+      - 5433:5432
+    environment: 
+      - POSTGRES_PASSWORD=simkaa47
+  
+  #pgadmin
+  pgadmin:
+    container_name: pgadmin4_container
+    image: dpage/pgadmin4
+    restart: always
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@admin.com
+      PGADMIN_DEFAULT_PASSWORD: root
+    ports:
+      - "5050:80" 
