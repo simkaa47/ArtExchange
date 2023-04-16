@@ -17,7 +17,8 @@ namespace ArtExchange.Application.Pipelines
             var context = new ValidationContext<TRequest>(request);
             var errors = _validators
                 .Select(x => x.Validate(context))
-                .SelectMany(x => x.Errors);
+                .SelectMany(x => x.Errors)
+                .Where(x=>x!=null);
                 
             if (errors.Any())
             {
