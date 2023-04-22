@@ -44,9 +44,10 @@ namespace ArtExchange.DataAccess.Repositories
                 .ToListAsync();
         }
 
-        public Task<IReadOnlyList<T>> ListAllAsync()
+        public async Task<IReadOnlyList<T>> ListAllAsync()
         {
-            throw new NotImplementedException();
+            return await _dbContext.Set<T>()                
+                .ToListAsync();
         }
 
         public Task UpdateAsync(T entity)
