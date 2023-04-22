@@ -1,4 +1,6 @@
 ﻿using ArtExchange.Application.Feautures.Persons.Commands.Add;
+using ArtExchange.Application.Feautures.Persons.Queries;
+using ArtExchange.Application.Feautures.Persons.Queries.GetPersonsList;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
@@ -19,9 +21,9 @@ namespace ArtExchange.Api.Controllers
 
         // GET: api/<PersonController>
         [HttpGet]
-        public IEnumerable<string> Get()
+        public async Task<ActionResult<IEnumerable<PersonVm>>> Get()
         {
-            return new string[] { "value1", "value2" };
+            return await _mediator.Send(new GetPersonsListQuery());
         }
 
         // GET api/<PersonController>/5
