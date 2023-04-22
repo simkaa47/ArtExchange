@@ -1,5 +1,6 @@
 ﻿using ArtExchange.Application.Contracts.Repository;
 using ArtExchange.DataAccess.DataContext;
+using Microsoft.EntityFrameworkCore;
 using System.Linq.Expressions;
 
 namespace ArtExchange.DataAccess.Repositories
@@ -31,14 +32,16 @@ namespace ArtExchange.DataAccess.Repositories
             throw new NotImplementedException();
         }
 
-        public Task<T> GetFirstWhere(Expression<Func<T, bool>> predicate)
+        public async Task<T> GetFirstWhere(Expression<Func<T, bool>> predicate)
         {
-            throw new NotImplementedException();
+            return await _dbContext.Set<T>().FirstOrDefaultAsync(predicate);
         }
 
-        public Task<IEnumerable<T>> GetWhere(Expression<Func<T, bool>> predicate)
+        public async Task<IEnumerable<T>> GetWhere(Expression<Func<T, bool>> predicate)
         {
-            throw new NotImplementedException();
+            return await _dbContext.Set<T>()
+                .Where(predicate)
+                .ToListAsync();
         }
 
         public Task<IReadOnlyList<T>> ListAllAsync()
