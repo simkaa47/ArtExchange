@@ -1,11 +1,12 @@
 ﻿using ArtExchange.Application.Contracts.Repository;
 using ArtExchange.DataAccess.DataContext;
+using ArtExchange.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 using System.Linq.Expressions;
 
 namespace ArtExchange.DataAccess.Repositories
 {
-    public class BaseRepository<T> : IRepositoryAsync<T> where T : class
+    public class BaseRepository<T> : IRepositoryAsync<T> where T : EntityCommon
     {
         private readonly ApplicationContext _dbContext;
 
@@ -27,9 +28,9 @@ namespace ArtExchange.DataAccess.Repositories
             throw new NotImplementedException();
         }
 
-        public Task<T> GetByIdAsync(int id)
+        public async  Task<T> GetByIdAsync(long id)
         {
-            throw new NotImplementedException();
+            return await _dbContext.Set<T>().FirstOrDefaultAsync(entity=>entity.Id == id);
         }
 
         public async Task<T> GetFirstWhere(Expression<Func<T, bool>> predicate)
