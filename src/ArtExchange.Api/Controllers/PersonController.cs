@@ -1,4 +1,5 @@
 ﻿using ArtExchange.Application.Feautures.Persons.Commands.Add;
+using ArtExchange.Application.Feautures.Persons.Commands.Edit;
 using ArtExchange.Application.Feautures.Persons.Queries;
 using ArtExchange.Application.Feautures.Persons.Queries.GetPerson;
 using ArtExchange.Application.Feautures.Persons.Queries.GetPersonsList;
@@ -39,16 +40,18 @@ namespace ArtExchange.Api.Controllers
 
         // POST api/<PersonController>
         [HttpPost]
-        public async Task<ActionResult> Post([FromBody] CreatePersonCommand createPersonCommand)
+        public async Task<ActionResult<int>> Post([FromBody] CreatePersonCommand createPersonCommand)
         {
             var id = await _mediator.Send(createPersonCommand);
-            return NoContent();
+            return Ok(id);
         }
 
         // PUT api/<PersonController>/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        [HttpPut]
+        public async Task<ActionResult> Put([FromBody] EditPersonCommand editPersonCommand)
         {
+            await _mediator.Send(editPersonCommand);
+            return Ok();
         }
 
         // DELETE api/<PersonController>/5
