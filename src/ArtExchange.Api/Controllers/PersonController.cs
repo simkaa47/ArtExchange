@@ -39,10 +39,10 @@ namespace ArtExchange.Api.Controllers
 
         // POST api/<PersonController>
         [HttpPost]
-        public async Task<ActionResult> Post([FromBody] CreatePersonCommand createPersonCommand)
+        public async Task<ActionResult<int>> Post([FromBody] CreatePersonCommand createPersonCommand)
         {
             var id = await _mediator.Send(createPersonCommand);
-            return NoContent();
+            return Ok(id);
         }
 
         // PUT api/<PersonController>/5
