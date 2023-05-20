@@ -16,8 +16,9 @@ public class EditPersonCommandHandler : IRequestHandler<EditPersonCommand>
         _mapper = mapper;
     }
 
-    public Task Handle(EditPersonCommand request, CancellationToken cancellationToken)
+    public async Task Handle(EditPersonCommand request, CancellationToken cancellationToken)
     {
-        throw new NotImplementedException();
+        var person = _mapper.Map<Person>(request);
+        await _personRepository.UpdateAsync(person);
     }
 }

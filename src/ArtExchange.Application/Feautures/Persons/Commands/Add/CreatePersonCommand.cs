@@ -2,6 +2,6 @@
 
 namespace ArtExchange.Application.Feautures.Persons.Commands.Add;
 
-public class CreatePersonCommand :PersonBaseCommand
+public class CreatePersonCommand : PersonDto, IRequest<long>
 {        
 }
