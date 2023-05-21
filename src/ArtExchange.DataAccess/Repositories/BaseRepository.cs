@@ -25,7 +25,8 @@ namespace ArtExchange.DataAccess.Repositories
 
         public async Task DeleteAsync(T entity)
         {
-            throw new NotImplementedException();
+            _dbContext.Set<T>().Remove(entity);
+            await _dbContext.SaveChangesAsync();
         }
 
         public async  Task<T> GetByIdAsync(long id)
