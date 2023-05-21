@@ -1,4 +1,5 @@
 ﻿using ArtExchange.Application.Contracts.Repository;
+using ArtExchange.Application.Exceptions;
 using ArtExchange.Domain.Entities;
 using MediatR;
 
@@ -12,9 +13,11 @@ namespace ArtExchange.Application.Feautures.Persons.Commands.Delete
         {
             _personRepository = personRepository;
         }
-        public Task Handle(DeletePersonCommand request, CancellationToken cancellationToken)
+        public async Task Handle(DeletePersonCommand request, CancellationToken cancellationToken)
         {
-            throw new NotImplementedException();
+            var person = await _personRepository.GetByIdAsync(request.Id);
+            if (person == null) throw  new NotFoundException("Person with Id", request.Id);
+            await _personRepository.DeleteAsync(person);
         }
     }
 }
