@@ -1,4 +1,5 @@
 ﻿using ArtExchange.Application.Feautures.Persons.Commands.Add;
+using ArtExchange.Application.Feautures.Persons.Commands.Delete;
 using ArtExchange.Application.Feautures.Persons.Commands.Edit;
 using ArtExchange.Application.Feautures.Persons.Queries;
 using ArtExchange.Application.Feautures.Persons.Queries.GetPerson;
@@ -56,8 +57,10 @@ namespace ArtExchange.Api.Controllers
 
         // DELETE api/<PersonController>/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public async Task<ActionResult> Delete(int id)
         {
+            await _mediator.Send(new DeletePersonCommand { Id = id });
+            return NoContent();
         }
     }
 }

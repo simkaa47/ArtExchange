@@ -1,4 +1,5 @@
-﻿using FluentValidation;
+﻿using ArtExchange.Application.Exceptions;
+using FluentValidation;
 using System.Linq;
 using System.Text.Json;
 
@@ -45,7 +46,8 @@ namespace ArtExchange.Api.Middlewares
             switch (exception)
             {
                 case BadHttpRequestException:return StatusCodes.Status400BadRequest;  
-                    case ValidationException:return StatusCodes.Status422UnprocessableEntity;                    
+                    case ValidationException:return StatusCodes.Status422UnprocessableEntity;
+                case NotFoundException: return StatusCodes.Status404NotFound;
                 default:return StatusCodes.Status500InternalServerError;                    
             }
         }
