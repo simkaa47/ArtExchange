@@ -17,7 +17,8 @@ namespace ArtExchange.Api.Builder
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             services.AddEndpointsApiExplorer();
             services.AddSwaggerGen();
-
+            services.AddTransient<ExceptionHandlingMiddleware>();
+               
             return services;
         }
 
