@@ -19,7 +19,7 @@ namespace ArtExchange.Application.Pipelines
                 .Select(x => x.Validate(context))
                 .SelectMany(x => x.Errors)
                 .Where(x=>x!=null);
-                
+
             if (errors.Any())
             {
                 throw new ValidationException("Server validation error", errors);
