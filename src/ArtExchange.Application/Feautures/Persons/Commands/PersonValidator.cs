@@ -1,5 +1,4 @@
 ﻿using ArtExchange.Application.Contracts.Repository;
-using ArtExchange.Application.Feautures.Persons.Commands.Add;
 using ArtExchange.Domain.Entities;
 using FluentValidation;
 
@@ -11,7 +10,7 @@ namespace ArtExchange.Application.Feautures.Persons.Commands
 
         public PersonValidator(IRepositoryAsync<Person> personRepository)
         {
-            RuleFor(command => 
+            RuleFor(command =>
                 command.FirstName).NotEmpty()
                 .MaximumLength(250)
                 .WithMessage("Player first name must not be empty");
