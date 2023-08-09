@@ -27,12 +27,16 @@ namespace ArtExchange.Tests.Common
             _serviceProvider = services.BuildServiceProvider();
             _context = _serviceProvider.GetRequiredService<ApplicationContext>();
             _personRepository = _serviceProvider.GetRequiredService<IRepositoryAsync<Person>>();
-            _mapper = _serviceProvider.GetRequiredService<IMapper>();
-            ApplicationContextFactory.DbInit(_context);
-            var persons = _personRepository.ListAllAsync().Result;
+            _mapper = _serviceProvider.GetRequiredService<IMapper>();   
+            InitDbAsync();
 
         }
 
+
+        public async void InitDbAsync()
+        {
+            await ApplicationContextFactory.DbInitAsync(_context);            
+        }
 
         public void Dispose()
         {

@@ -7,21 +7,19 @@ using Shouldly;
 
 namespace ArtExchange.Tests.Persons.Commands
 {
-    public class AddPersonCommandHandlerTests : IClassFixture<TestCommandBase>
+    public class AddPersonCommandHandlerTests : TestCommandBase
     {
         private readonly CreatePersonCommandHandler _handler;
         private readonly ValidationBehavior<CreatePersonCommand, long> _validationBehavior;
 
-        public AddPersonCommandHandlerTests(TestCommandBase commonFixture)
+        public AddPersonCommandHandlerTests()
         {
-            _handler = new CreatePersonCommandHandler(commonFixture._personRepository, commonFixture._mapper);
+            _handler = new CreatePersonCommandHandler(_personRepository, _mapper);
             _validationBehavior = new ValidationBehavior<CreatePersonCommand, long>(new List<CreatePersonCommandValidator>()
             {
-                new CreatePersonCommandValidator(commonFixture._personRepository)
+                new CreatePersonCommandValidator(_personRepository)
             });
-        }
-
-        public TestCommandBase CommonFixture { get; }
+        }        
 
         [Fact]
         public async Task AddPersonCommandHandler_Success()

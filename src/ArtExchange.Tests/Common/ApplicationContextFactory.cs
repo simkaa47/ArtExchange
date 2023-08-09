@@ -8,16 +8,16 @@ namespace ArtExchange.Tests.Common
         public static long NotExistId = 8;
 
 
-        public static void Destroy(ApplicationContext context)
+        public static void Destroy(ApplicationContext? context)
         {
-            context.Database.EnsureDeleted();
-            context.Dispose();
+            context?.Database.EnsureDeleted();
+            context?.Dispose();
         }
 
-        public static void DbInit(ApplicationContext context)
+        public static async Task DbInitAsync(ApplicationContext? context)
         {
-            context.Database.EnsureCreated();
-            context.Persons.AddRange(
+            context?.Database.EnsureCreated();
+            context?.Persons.AddRange(
                 new Person
                 {
                     Id = 1,
@@ -43,7 +43,7 @@ namespace ArtExchange.Tests.Common
                      LastName = "Prilezhaev"
                  }
                 );
-            context.SaveChanges();
+            await context.SaveChangesAsync();
         }
     }
 }
