@@ -1,13 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore.Migrations;
+using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 #nullable disable
 
 namespace ArtExchange.Api.Migrations
 {
     /// <inheritdoc />
-    public partial class AddPreferences_to_teacher : Migration
+    public partial class Add_preferences_and_links_to_teacher : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -29,25 +29,12 @@ namespace ArtExchange.Api.Migrations
                 oldClrType: typeof(DateTime),
                 oldType: "timestamp with time zone");
 
-            migrationBuilder.AddColumn<int[]>(
-                name: "ArtPrefrences",
-                table: "Teachers",
-                type: "integer[]",
-                nullable: false,
-                defaultValue: new int[0]);
-
             migrationBuilder.AddColumn<string>(
                 name: "Description",
                 table: "Teachers",
                 type: "text",
                 nullable: false,
                 defaultValue: "");
-
-            migrationBuilder.AddColumn<List<string>>(
-                name: "Links",
-                table: "Teachers",
-                type: "text[]",
-                nullable: false);
 
             migrationBuilder.AlterColumn<DateTime>(
                 name: "LastModifiedDate",
@@ -149,21 +136,76 @@ namespace ArtExchange.Api.Migrations
                 nullable: false,
                 oldClrType: typeof(DateTime),
                 oldType: "timestamp with time zone");
+
+            migrationBuilder.CreateTable(
+                name: "ArtClassType",
+                columns: table => new
+                {
+                    Id = table.Column<long>(type: "bigint", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    Name = table.Column<string>(type: "text", nullable: false),
+                    TeacherId = table.Column<long>(type: "bigint", nullable: true),
+                    CreatedBy = table.Column<string>(type: "text", nullable: true),
+                    CreatedDate = table.Column<DateTime>(type: "timestamp without time zone", nullable: false),
+                    LastModifiedBy = table.Column<string>(type: "text", nullable: true),
+                    LastModifiedDate = table.Column<DateTime>(type: "timestamp without time zone", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_ArtClassType", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_ArtClassType_Teachers_TeacherId",
+                        column: x => x.TeacherId,
+                        principalTable: "Teachers",
+                        principalColumn: "Id");
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Link",
+                columns: table => new
+                {
+                    Id = table.Column<long>(type: "bigint", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    Url = table.Column<string>(type: "text", nullable: false),
+                    Description = table.Column<string>(type: "text", nullable: false),
+                    TeacherId = table.Column<long>(type: "bigint", nullable: true),
+                    CreatedBy = table.Column<string>(type: "text", nullable: true),
+                    CreatedDate = table.Column<DateTime>(type: "timestamp without time zone", nullable: false),
+                    LastModifiedBy = table.Column<string>(type: "text", nullable: true),
+                    LastModifiedDate = table.Column<DateTime>(type: "timestamp without time zone", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Link", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Link_Teachers_TeacherId",
+                        column: x => x.TeacherId,
+                        principalTable: "Teachers",
+                        principalColumn: "Id");
+                });
+
+            migrationBuilder.CreateIndex(
+                name: "IX_ArtClassType_TeacherId",
+                table: "ArtClassType",
+                column: "TeacherId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Link_TeacherId",
+                table: "Link",
+                column: "TeacherId");
         }
 
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.DropColumn(
-                name: "ArtPrefrences",
-                table: "Teachers");
+            migrationBuilder.DropTable(
+                name: "ArtClassType");
+
+            migrationBuilder.DropTable(
+                name: "Link");
 
             migrationBuilder.DropColumn(
                 name: "Description",
-                table: "Teachers");
-
-            migrationBuilder.DropColumn(
-                name: "Links",
                 table: "Teachers");
 
             migrationBuilder.AlterColumn<DateTime>(

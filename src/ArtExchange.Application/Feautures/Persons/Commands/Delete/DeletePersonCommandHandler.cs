@@ -1,6 +1,6 @@
 ﻿using ArtExchange.Application.Contracts.Repository;
 using ArtExchange.Application.Exceptions;
-using ArtExchange.Domain.Entities;
+using ArtExchange.Domain.Entities.Administration;
 using MediatR;
 
 namespace ArtExchange.Application.Feautures.Persons.Commands.Delete

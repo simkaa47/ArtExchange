@@ -1,4 +1,7 @@
-﻿namespace ArtExchange.Domain.Entities
+﻿using ArtExchange.Domain.Entities.Administration;
+using ArtExchange.Domain.Entities.Common;
+
+namespace ArtExchange.Domain.Entities.Events
 {
     public class Event : EntityCommon
     {

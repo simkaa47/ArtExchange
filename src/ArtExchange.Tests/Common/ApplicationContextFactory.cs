@@ -1,5 +1,5 @@
 ﻿using ArtExchange.DataAccess.DataContext;
-using ArtExchange.Domain.Entities;
+using ArtExchange.Domain.Entities.Administration;
 
 namespace ArtExchange.Tests.Common
 {

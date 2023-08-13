@@ -1,5 +1,5 @@
 ﻿using ArtExchange.Application.Contracts.Repository;
-using ArtExchange.Domain.Entities;
+using ArtExchange.Domain.Entities.Administration;
 using MapsterMapper;
 using MediatR;
 

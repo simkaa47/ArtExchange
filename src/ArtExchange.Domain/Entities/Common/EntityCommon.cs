@@ -1,4 +1,4 @@
-﻿namespace ArtExchange.Domain.Entities
+﻿namespace ArtExchange.Domain.Entities.Common
 {
     public abstract class EntityCommon
     {
