@@ -1,4 +1,6 @@
-﻿using ArtExchange.Domain.Entities;
+﻿using ArtExchange.Domain.Entities.Administration;
+using ArtExchange.Domain.Entities.Common;
+using ArtExchange.Domain.Entities.Events;
 using Microsoft.EntityFrameworkCore;
 
 namespace ArtExchange.DataAccess.DataContext

@@ -2,7 +2,7 @@
 using ArtExchange.Application.Contracts.Repository;
 using ArtExchange.DataAccess.DataContext;
 using ArtExchange.DataAccess.Repositories;
-using ArtExchange.Domain.Entities;
+using ArtExchange.Domain.Entities.Administration;
 using MapsterMapper;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;

@@ -1,7 +1,8 @@
-﻿
-namespace ArtExchange.Domain.Entities
+﻿using ArtExchange.Domain.Entities.Common;
+
+namespace ArtExchange.Domain.Entities.Administration
 {
-    public class Person: EntityCommon
+    public class Person : EntityCommon
     {
         public string FirstName { get; set; } = string.Empty;
         public string LastName { get; set; } = string.Empty;

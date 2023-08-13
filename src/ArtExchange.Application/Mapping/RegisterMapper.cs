@@ -1,5 +1,5 @@
 ﻿using ArtExchange.Application.Feautures.Persons.Commands.Add;
-using ArtExchange.Domain.Entities;
+using ArtExchange.Domain.Entities.Administration;
 using Mapster;
 
 namespace ArtExchange.Application.Mapping

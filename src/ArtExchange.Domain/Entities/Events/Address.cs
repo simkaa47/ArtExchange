@@ -1,6 +1,8 @@
-﻿namespace ArtExchange.Domain.Entities
+﻿using ArtExchange.Domain.Entities.Common;
+
+namespace ArtExchange.Domain.Entities.Events
 {
-    public class Address:EntityCommon
+    public class Address : EntityCommon
     {
         public string Name { get; set; } = string.Empty;
         public double Longitude { get; set; }
