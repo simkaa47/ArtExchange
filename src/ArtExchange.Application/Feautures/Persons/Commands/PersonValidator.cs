@@ -41,6 +41,9 @@ namespace ArtExchange.Application.Feautures.Persons.Commands
                 command.Login).Must(IsLoginUnique)
                 .WithMessage(command => $"Login must be unique");
 
+            RuleFor(command => command.Login).NotEmpty()
+                .WithMessage("Login should not be empty");
+
             RuleFor(command =>
                 command.Password).MinimumLength(_minPasswordLength)
                 .WithMessage(command => $"Password length must be more or equal then {_minPasswordLength}");  

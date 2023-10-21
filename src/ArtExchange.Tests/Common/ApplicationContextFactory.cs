@@ -24,7 +24,9 @@ namespace ArtExchange.Tests.Common
                     Email = "petr2009@yahoo.com",
                     DataOfBirth = new DateTime(1993, 7, 12),
                     FirstName = "Nikita",
-                    LastName = "Petrov"
+                    LastName = "Petrov",
+                    Login = "nik2009"
+                    
                 },
                 new Person
                 {
