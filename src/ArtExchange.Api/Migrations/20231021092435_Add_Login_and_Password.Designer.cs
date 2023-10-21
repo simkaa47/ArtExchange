@@ -3,6 +3,7 @@ using System;
 using ArtExchange.DataAccess.DataContext;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -11,9 +12,11 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace ArtExchange.Api.Migrations
 {
     [DbContext(typeof(ApplicationContext))]
-    partial class ApplicationContextModelSnapshot : ModelSnapshot
+    [Migration("20231021092435_Add_Login_and_Password")]
+    partial class Add_Login_and_Password
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -71,7 +74,7 @@ namespace ArtExchange.Api.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Persons", (string)null);
+                    b.ToTable("Persons");
                 });
 
             modelBuilder.Entity("ArtExchange.Domain.Entities.Administration.Student", b =>
@@ -101,7 +104,7 @@ namespace ArtExchange.Api.Migrations
 
                     b.HasIndex("PersonId");
 
-                    b.ToTable("Students", (string)null);
+                    b.ToTable("Students");
                 });
 
             modelBuilder.Entity("ArtExchange.Domain.Entities.Administration.Teacher", b =>
@@ -135,7 +138,7 @@ namespace ArtExchange.Api.Migrations
 
                     b.HasIndex("PersonId");
 
-                    b.ToTable("Teachers", (string)null);
+                    b.ToTable("Teachers");
                 });
 
             modelBuilder.Entity("ArtExchange.Domain.Entities.Common.ArtClassType", b =>
@@ -169,7 +172,7 @@ namespace ArtExchange.Api.Migrations
 
                     b.HasIndex("TeacherId");
 
-                    b.ToTable("ArtClassType", (string)null);
+                    b.ToTable("ArtClassType");
                 });
 
             modelBuilder.Entity("ArtExchange.Domain.Entities.Common.Link", b =>
@@ -207,7 +210,7 @@ namespace ArtExchange.Api.Migrations
 
                     b.HasIndex("TeacherId");
 
-                    b.ToTable("Link", (string)null);
+                    b.ToTable("Link");
                 });
 
             modelBuilder.Entity("ArtExchange.Domain.Entities.Events.Address", b =>
@@ -242,7 +245,7 @@ namespace ArtExchange.Api.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Addresses", (string)null);
+                    b.ToTable("Addresses");
                 });
 
             modelBuilder.Entity("ArtExchange.Domain.Entities.Events.Event", b =>
@@ -298,7 +301,7 @@ namespace ArtExchange.Api.Migrations
 
                     b.HasIndex("PlaceId");
 
-                    b.ToTable("Events", (string)null);
+                    b.ToTable("Events");
                 });
 
             modelBuilder.Entity("ArtExchange.Domain.Entities.Events.EventPlace", b =>
@@ -336,7 +339,7 @@ namespace ArtExchange.Api.Migrations
 
                     b.HasIndex("AddressId");
 
-                    b.ToTable("EventsPlaces", (string)null);
+                    b.ToTable("EventsPlaces");
                 });
 
             modelBuilder.Entity("EventStudent", b =>
@@ -351,7 +354,7 @@ namespace ArtExchange.Api.Migrations
 
                     b.HasIndex("StudentsId");
 
-                    b.ToTable("EventStudent", (string)null);
+                    b.ToTable("EventStudent");
                 });
 
             modelBuilder.Entity("EventTeacher", b =>
@@ -366,7 +369,7 @@ namespace ArtExchange.Api.Migrations
 
                     b.HasIndex("TeachersId");
 
-                    b.ToTable("EventTeacher", (string)null);
+                    b.ToTable("EventTeacher");
                 });
 
             modelBuilder.Entity("ArtExchange.Domain.Entities.Administration.Student", b =>
