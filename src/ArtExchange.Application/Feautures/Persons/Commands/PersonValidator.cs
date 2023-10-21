@@ -8,6 +8,8 @@ namespace ArtExchange.Application.Feautures.Persons.Commands
     {
         private readonly IRepositoryAsync<Person> _personRepository;
 
+        private const int _minPasswordLength = 8;
+
         public PersonValidator(IRepositoryAsync<Person> personRepository)
         {
             RuleFor(command =>
@@ -35,7 +37,13 @@ namespace ArtExchange.Application.Feautures.Persons.Commands
                 command.Email).Must(IsEmailUnique)
                 .WithMessage(command => $"Email {command.Email} already belongs to other person");
 
+            RuleFor(command =>
+                command.Login).Must(IsLoginUnique)
+                .WithMessage(command => $"Login must be unique");
 
+            RuleFor(command =>
+                command.Password).MinimumLength(_minPasswordLength)
+                .WithMessage(command => $"Password length must be more or equal then {_minPasswordLength}");  
 
             _personRepository = personRepository;
         }
@@ -43,6 +51,12 @@ namespace ArtExchange.Application.Feautures.Persons.Commands
         public bool IsEmailUnique(string email)
         {
             var result = _personRepository.GetFirstWhere(p => p.Email == email);
+            return result.Result == null;
+        }
+
+        public bool IsLoginUnique(string login)
+        {
+            var result = _personRepository.GetFirstWhere(p => p.Login == login);
             return result.Result == null;
         }
     }
