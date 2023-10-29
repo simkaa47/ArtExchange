@@ -1,4 +1,5 @@
 ﻿using ArtExchange.Domain.Entities.Common;
+using Microsoft.AspNetCore.Identity;
 using System.ComponentModel.DataAnnotations;
 
 namespace ArtExchange.Domain.Entities.Administration
@@ -12,5 +13,6 @@ namespace ArtExchange.Domain.Entities.Administration
         public DateTime DataOfBirth { get; set; }       
         public string Login { get; set; } = string.Empty;        
         public string Password { get; set; } = string.Empty;
+        public Roles Role { get; set; }
     }
 }

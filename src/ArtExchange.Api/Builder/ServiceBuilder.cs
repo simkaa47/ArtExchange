@@ -2,7 +2,6 @@
 using ArtExchange.Application;
 using ArtExchange.DataAccess;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 
@@ -35,7 +34,7 @@ namespace ArtExchange.Api.Builder
             return services;
         }
 
-        public static IServiceCollection ConfigureSensitiveServices (IServiceCollection services = null!, IConfiguration configuration = null!)
+        public static IServiceCollection ConfigureSensitiveServices(IServiceCollection services = null!, IConfiguration configuration = null!)
         {
             if (services is null) services = new ServiceCollection();
             services.AddDataContext(configuration);
@@ -52,10 +51,10 @@ namespace ArtExchange.Api.Builder
         private static void AddAuthentication(IServiceCollection services = null!, IConfiguration configuration = null!)
         {
             if (services is null) services = new ServiceCollection();
-            if(configuration is null) configuration = GetConfiguration();
+            if (configuration is null) configuration = GetConfiguration();
             var secretKey = configuration["TokenKey"] ?? "secret_key";
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(secretKey));
-            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options => 
+            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options =>
             {
                 options.Events = new JwtBearerEvents
                 {
@@ -75,6 +74,9 @@ namespace ArtExchange.Api.Builder
             });
 
         }
+
+
+
 
     }
 }
