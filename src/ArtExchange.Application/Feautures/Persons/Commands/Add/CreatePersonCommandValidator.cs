@@ -7,7 +7,7 @@ namespace ArtExchange.Application.Feautures.Persons.Commands.Add
     {
         public CreatePersonCommandValidator(IRepositoryAsync<Person> personRepository) : base(personRepository)
         {
-
+            
         }
     }
 }

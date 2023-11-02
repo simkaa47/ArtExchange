@@ -48,6 +48,7 @@ namespace ArtExchange.Api.Middlewares
                 case BadHttpRequestException:return StatusCodes.Status400BadRequest;  
                     case ValidationException:return StatusCodes.Status422UnprocessableEntity;
                 case NotFoundException: return StatusCodes.Status404NotFound;
+                case RestException: return ((int)((RestException)exception).Code);
                 default:return StatusCodes.Status500InternalServerError;                    
             }
         }
@@ -77,6 +78,7 @@ namespace ArtExchange.Api.Middlewares
                             })
                     .ToDictionary(x => x.Key, x => x.Values);
             }
+            if(errors is null)return new Dictionary<string, string[]>();
             return errors;
         }
     }
