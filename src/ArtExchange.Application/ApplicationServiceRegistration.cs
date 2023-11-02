@@ -1,4 +1,6 @@
-﻿using ArtExchange.Application.Mapping;
+﻿using ArtExchange.Application.Contracts.Authentication;
+using ArtExchange.Application.Infrastructure.Security;
+using ArtExchange.Application.Mapping;
 using ArtExchange.Application.Pipelines;
 using FluentValidation;
 using MediatR;
@@ -15,6 +17,7 @@ namespace ArtExchange.Application
             services.AddMapper();
             services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
             services.AddTransient(typeof(IPipelineBehavior<,>), typeof(ValidationBehavior<,>));
+            services.AddScoped<IJwtProvider, JwtProvider>();
 
             return services;
         }
