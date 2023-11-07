@@ -5,6 +5,7 @@ using ArtExchange.Application.Feautures.Persons.Queries;
 using ArtExchange.Application.Feautures.Persons.Queries.GetPerson;
 using ArtExchange.Application.Feautures.Persons.Queries.GetPersonsList;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -49,6 +50,7 @@ namespace ArtExchange.Api.Controllers
 
         // PUT api/<PersonController>/5
         [HttpPut]
+        [Authorize]
         public async Task<ActionResult> Put([FromBody] EditPersonCommand editPersonCommand)
         {
             await _mediator.Send(editPersonCommand);

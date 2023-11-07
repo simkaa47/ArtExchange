@@ -21,20 +21,20 @@ namespace ArtExchange.Application.Infrastructure.Security
         {
             var claims = new List<Claim>
             {
-                new Claim("login", person.Login),
-                new Claim("role", person.Role.ToString())
+                new Claim(ClaimTypes.Name, person.Login),
+                new Claim(ClaimTypes.Role, person.Role.ToString())
             };
 
             var credentials = new SigningCredentials(
                 new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_options.SecretKey)),
-                SecurityAlgorithms.HmacSha256);
+                SecurityAlgorithms.HmacSha512Signature);
 
             var token = new JwtSecurityToken(
                 _options.Issuer,
                 _options.Audience,
                 claims,
                 null,
-                DateTime.UtcNow.AddHours(1),
+                DateTime.UtcNow.AddHours(12),
                 credentials);
 
             var tokenValue = new JwtSecurityTokenHandler().WriteToken(token);

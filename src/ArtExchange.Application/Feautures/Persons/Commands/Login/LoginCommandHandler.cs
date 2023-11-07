@@ -13,7 +13,7 @@ namespace ArtExchange.Application.Feautures.Persons.Commands.Login
         private readonly IRepositoryAsync<Person> _personRepository;
         private readonly IJwtProvider _jwtProvider;
 
-        public LoginCommandHandler(IRepositoryAsync<Person> personRepository, IJwtProvider jwtProvider, HttpContext context)
+        public LoginCommandHandler(IRepositoryAsync<Person> personRepository, IJwtProvider jwtProvider)
         {
             _personRepository = personRepository;
             _jwtProvider = jwtProvider;

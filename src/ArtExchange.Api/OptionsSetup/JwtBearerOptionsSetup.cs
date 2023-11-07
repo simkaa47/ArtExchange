@@ -14,7 +14,7 @@ namespace ArtExchange.Api.OptionsSetup
         {
             _jwtOptions = jwtOptions.Value;
         }
-        public void Configure(string? name, JwtBearerOptions options)
+        public void Configure(JwtBearerOptions options)
         {
             options.Events = new JwtBearerEvents
             {
@@ -35,6 +35,10 @@ namespace ArtExchange.Api.OptionsSetup
                 IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_jwtOptions.SecretKey))
             };
         }
-        
+
+        public void Configure(string? name, JwtBearerOptions options)
+        {
+            Configure(options);
+        }
     }
 }
