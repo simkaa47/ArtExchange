@@ -19,6 +19,7 @@ namespace ArtExchange.Application
             services.AddTransient(typeof(IPipelineBehavior<,>), typeof(ValidationBehavior<,>));
             services.AddScoped<IJwtProvider, JwtProvider>();
             services.AddScoped<IPasswordHasher, PasswordHasher>();
+            services.AddHttpContextAccessor();
 
             return services;
         }

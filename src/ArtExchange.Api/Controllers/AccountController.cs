@@ -1,4 +1,5 @@
 ﻿using ArtExchange.Application.Feautures.Persons.Commands.Login;
+using ArtExchange.Application.Feautures.Persons.Commands.Logout;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -18,9 +19,17 @@ namespace ArtExchange.Api.Controllers
         [HttpPost("login")]
         public async Task<ActionResult> LoginAsync([FromBody] LoginCommand loginCommand)
         {
-            var token = await _mediator.Send(loginCommand);
-            this.HttpContext.Response.Cookies.Append("jwt", token);
+            await _mediator.Send(loginCommand);            
             return Ok();
         }
+
+        [HttpPost("logout")]
+        public async Task<ActionResult> LogoutAsync()
+        {
+            await _mediator.Send(new LogoutCommand());
+            return Ok();
+        }
+
+
     }
 }

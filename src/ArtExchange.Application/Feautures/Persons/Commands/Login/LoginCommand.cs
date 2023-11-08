@@ -2,7 +2,7 @@
 
 namespace ArtExchange.Application.Feautures.Persons.Commands.Login
 {
-    public class LoginCommand : IRequest<string>
+    public class LoginCommand : IRequest
     {
         public string? Login { get; set; }
         public string? Password { get; set; }

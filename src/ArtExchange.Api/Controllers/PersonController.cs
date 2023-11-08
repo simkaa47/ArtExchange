@@ -25,6 +25,7 @@ namespace ArtExchange.Api.Controllers
 
         // GET: api/<PersonController>
         [HttpGet]
+        [Authorize]
         public async Task<ActionResult<IEnumerable<PersonVm>>> Get()
         {
             return await _mediator.Send(new GetPersonsListQuery());
@@ -32,6 +33,7 @@ namespace ArtExchange.Api.Controllers
 
         // GET api/<PersonController>/5
         [HttpGet("{id}")]
+        [Authorize]
         public async Task<ActionResult<PersonVm>>Get(long id)
         {
             var personVm = await _mediator.Send(new GetPersonQuery { Id = id});
