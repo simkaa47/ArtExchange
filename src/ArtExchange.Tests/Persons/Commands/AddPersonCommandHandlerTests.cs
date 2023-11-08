@@ -18,7 +18,7 @@ namespace ArtExchange.Tests.Persons.Commands
 
         public AddPersonCommandHandlerTests()
         {
-            _handler = new CreatePersonCommandHandler(_personRepository, _mapper);
+            _handler = new CreatePersonCommandHandler(_personRepository, _mapper, _passwordHasher);
             _validationBehavior = new ValidationBehavior<CreatePersonCommand, long>(new List<CreatePersonCommandValidator>()
             {
                 new CreatePersonCommandValidator(_personRepository)

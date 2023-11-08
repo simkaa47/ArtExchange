@@ -1,4 +1,4 @@
-﻿using ArtExchange.Application.Contracts.Authentication;
+﻿using ArtExchange.Application.Contracts.Security;
 using ArtExchange.Application.Infrastructure.Security;
 using ArtExchange.Application.Mapping;
 using ArtExchange.Application.Pipelines;
@@ -18,6 +18,7 @@ namespace ArtExchange.Application
             services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
             services.AddTransient(typeof(IPipelineBehavior<,>), typeof(ValidationBehavior<,>));
             services.AddScoped<IJwtProvider, JwtProvider>();
+            services.AddScoped<IPasswordHasher, PasswordHasher>();
 
             return services;
         }

@@ -1,5 +1,6 @@
 ﻿using ArtExchange.Api.Builder;
 using ArtExchange.Application.Contracts.Repository;
+using ArtExchange.Application.Contracts.Security;
 using ArtExchange.DataAccess.DataContext;
 using ArtExchange.DataAccess.Repositories;
 using ArtExchange.Domain.Entities.Administration;
@@ -15,6 +16,7 @@ namespace ArtExchange.Tests.Common
         private readonly ApplicationContext? _context;
         public readonly IRepositoryAsync<Person> _personRepository;
         public readonly IMapper  _mapper;
+        public readonly IPasswordHasher _passwordHasher;
         public TestCommandBase()
         {
             var services = ServiceBuilder.ConfigureCommonServices();
@@ -27,7 +29,8 @@ namespace ArtExchange.Tests.Common
             _serviceProvider = services.BuildServiceProvider();
             _context = _serviceProvider.GetRequiredService<ApplicationContext>();
             _personRepository = _serviceProvider.GetRequiredService<IRepositoryAsync<Person>>();
-            _mapper = _serviceProvider.GetRequiredService<IMapper>();   
+            _mapper = _serviceProvider.GetRequiredService<IMapper>();
+            _passwordHasher = _serviceProvider.GetRequiredService<IPasswordHasher>();
             InitDbAsync();
 
         }
