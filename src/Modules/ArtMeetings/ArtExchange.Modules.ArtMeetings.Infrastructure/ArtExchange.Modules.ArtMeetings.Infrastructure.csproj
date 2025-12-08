@@ -1,0 +1,14 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <ItemGroup>
+      <ProjectReference Include="..\ArtExchange.Modules.ArtMeetings.Application\ArtExchange.Modules.ArtMeetings.Application.csproj" />
+      <ProjectReference Include="..\ArtExchange.Modules.ArtMeetings.Presentation\ArtExchange.Modules.ArtMeetings.Presentation.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Dapper" Version="2.1.66" />
+      <PackageReference Include="EFCore.NamingConventions" Version="9.0.0" />
+      <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="9.0.4" />
+    </ItemGroup>
+
+</Project>

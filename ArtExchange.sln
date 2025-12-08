@@ -1,0 +1,69 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "props", "props", "{1707F71A-5D93-458A-944A-247870AE87DA}"
+	ProjectSection(SolutionItems) = preProject
+		Directory.Build.props = Directory.Build.props
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution items", "Solution items", "{6BEC3A5B-AF5F-470A-87FF-2EB898F21E27}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+		compose.yaml = compose.yaml
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArtExchange.API", "src\API\ArtExchange.API\ArtExchange.API.csproj", "{35C6AD5D-BCAC-4E06-97DA-75E1FF41893A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{DA3A83E1-559B-4295-A526-C6667C545E67}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "API", "API", "{2FF2648E-5915-4771-9082-3AEF98C4627D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Modules", "Modules", "{92F9B131-490A-414B-A17B-D0373A1CCC19}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ArtMeetings", "ArtMeetings", "{516CF3BE-974C-403B-827D-857A1324ABFC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArtExchange.Modules.ArtMeetings.Domain", "src\Modules\ArtMeetings\ArtExchange.Modules.ArtMeetings.Domain\ArtExchange.Modules.ArtMeetings.Domain.csproj", "{C3E251D9-E18F-4AB1-85E6-7DE10E223D0A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArtExchange.Modules.ArtMeetings.Infrastructure", "src\Modules\ArtMeetings\ArtExchange.Modules.ArtMeetings.Infrastructure\ArtExchange.Modules.ArtMeetings.Infrastructure.csproj", "{D0E2DEB4-F145-4A9B-B866-C63B1C5381D9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArtExchange.Modules.ArtMeetings.Presentation", "src\Modules\ArtMeetings\ArtExchange.Modules.ArtMeetings.Presentation\ArtExchange.Modules.ArtMeetings.Presentation.csproj", "{EE99CA82-77FC-4905-8FF8-9B3CC9CC0FB8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArtExchange.Modules.ArtMeetings.Application", "src\Modules\ArtMeetings\ArtExchange.Modules.ArtMeetings.Application\ArtExchange.Modules.ArtMeetings.Application.csproj", "{F9112FFC-7EA2-420E-9E02-939F02E4AE3D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{35C6AD5D-BCAC-4E06-97DA-75E1FF41893A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{35C6AD5D-BCAC-4E06-97DA-75E1FF41893A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{35C6AD5D-BCAC-4E06-97DA-75E1FF41893A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{35C6AD5D-BCAC-4E06-97DA-75E1FF41893A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C3E251D9-E18F-4AB1-85E6-7DE10E223D0A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C3E251D9-E18F-4AB1-85E6-7DE10E223D0A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C3E251D9-E18F-4AB1-85E6-7DE10E223D0A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C3E251D9-E18F-4AB1-85E6-7DE10E223D0A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D0E2DEB4-F145-4A9B-B866-C63B1C5381D9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D0E2DEB4-F145-4A9B-B866-C63B1C5381D9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D0E2DEB4-F145-4A9B-B866-C63B1C5381D9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D0E2DEB4-F145-4A9B-B866-C63B1C5381D9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EE99CA82-77FC-4905-8FF8-9B3CC9CC0FB8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EE99CA82-77FC-4905-8FF8-9B3CC9CC0FB8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EE99CA82-77FC-4905-8FF8-9B3CC9CC0FB8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EE99CA82-77FC-4905-8FF8-9B3CC9CC0FB8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F9112FFC-7EA2-420E-9E02-939F02E4AE3D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F9112FFC-7EA2-420E-9E02-939F02E4AE3D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F9112FFC-7EA2-420E-9E02-939F02E4AE3D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F9112FFC-7EA2-420E-9E02-939F02E4AE3D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{2FF2648E-5915-4771-9082-3AEF98C4627D} = {DA3A83E1-559B-4295-A526-C6667C545E67}
+		{35C6AD5D-BCAC-4E06-97DA-75E1FF41893A} = {2FF2648E-5915-4771-9082-3AEF98C4627D}
+		{92F9B131-490A-414B-A17B-D0373A1CCC19} = {DA3A83E1-559B-4295-A526-C6667C545E67}
+		{516CF3BE-974C-403B-827D-857A1324ABFC} = {92F9B131-490A-414B-A17B-D0373A1CCC19}
+		{C3E251D9-E18F-4AB1-85E6-7DE10E223D0A} = {516CF3BE-974C-403B-827D-857A1324ABFC}
+		{D0E2DEB4-F145-4A9B-B866-C63B1C5381D9} = {516CF3BE-974C-403B-827D-857A1324ABFC}
+		{EE99CA82-77FC-4905-8FF8-9B3CC9CC0FB8} = {516CF3BE-974C-403B-827D-857A1324ABFC}
+		{F9112FFC-7EA2-420E-9E02-939F02E4AE3D} = {516CF3BE-974C-403B-827D-857A1324ABFC}
+	EndGlobalSection
+EndGlobal
